@@ -8,7 +8,7 @@ import { format } from 'd3-format';
 import config from '../../config';
 import { getVariables, getCurrentMethodID, getTsRequestKey, getRequestTimeRange, getIanaTimeZone }
     from '../../selectors/time-series-selector';
-import { getCurrentVariableMedianStatistics } from '../../selectors/median-statistics-selector';
+import { getCurrentMethodMedianStatistics } from '../../selectors/median-statistics-selector';
 
 import { allTimeSeriesSelector, currentVariableTimeSeriesSelector, timeSeriesSelector } from './time-series';
 
@@ -186,7 +186,7 @@ export const classesForPoint = point => {
  * @ return {Array of Arrays of Objects} where the properties are date (universal), class,  and value
 */
 export const getCurrentVariableMedianStatPoints = createSelector(
-    getCurrentVariableMedianStatistics,
+    getCurrentMethodMedianStatistics,
     getRequestTimeRange('current'),
     getIanaTimeZone,
     (stats, timeRange, ianaTimeZone) => {

@@ -4,7 +4,7 @@
 import { Actions } from '../../store';
 import { dispatch, link } from '../../lib/redux';
 import { audibleUI } from './audible';
-import { getCurrentVariableMedianStatistics } from '../../selectors/median-statistics-selector';
+import { getCurrentMethodMedianStatistics } from '../../selectors/median-statistics-selector';
 import { isVisibleSelector, currentVariableTimeSeriesSelector } from './time-series';
 
 /*
@@ -68,7 +68,7 @@ export const drawGraphControls = function(elem) {
         // Disables the checkbox if no median data for the current variable
         .call(link(function(elem, medianData) {
             elem.property('disabled', medianData === null);
-        }, getCurrentVariableMedianStatistics))
+        }, getCurrentMethodMedianStatistics))
         // Sets the state of the toggle
         .call(link(function(elem, checked) {
             elem.property('checked', checked);
